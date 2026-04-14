@@ -38,3 +38,5 @@ git clone https://github.com/kappathasini/deepfake-detector-pro.git
 
 3. Run using Live Server OR open:
 index.html
+Markdowm
+ [Open DeepFake Detector Pro](https://deepfake-detector-pro-mu.vercel.app)
