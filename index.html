@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DeepFake Shield — Real-Time AI Face & Voice Fraud Detection System. Instantly detect deepfake videos, cloned audio, and manipulated images with advanced AI forensics." />
+  <title>DeepFake Shield | AI Fraud Detection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Ambient background particles -->
+  <div class="bg-grid" aria-hidden="true"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- ======= NAVBAR ======= -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-brand" id="nav-brand">
+        <div class="nav-logo-ring">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 2L24 7V14C24 19.5 19.5 24.5 14 26C8.5 24.5 4 19.5 4 14V7L14 2Z" stroke="url(#sg)" stroke-width="1.5" fill="rgba(99,102,241,0.15)"/>
+            <circle cx="14" cy="14" r="4" fill="url(#sg2)"/>
+            <circle cx="14" cy="14" r="2" fill="#fff" opacity="0.9"/>
+            <defs>
+              <linearGradient id="sg" x1="4" y1="2" x2="24" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#6366f1"/>
+                <stop offset="1" stop-color="#06b6d4"/>
+              </linearGradient>
+              <linearGradient id="sg2" x1="10" y1="10" x2="18" y2="18" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#a78bfa"/>
+                <stop offset="1" stop-color="#38bdf8"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <span>DeepFake<span class="brand-accent">Shield</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#detect" class="nav-link">Detect</a></li>
+        <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+        <li><a href="#detect" class="nav-cta" id="nav-cta-btn">Start Scan</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ======= HERO ======= -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge" id="hero-badge">
+        <span class="badge-dot"></span>
+        AI-Powered Detection Engine Active
+      </div>
+      <h1 class="hero-title" id="hero-title">
+        <span class="title-line">DeepFake</span>
+        <span class="title-line gradient-text">Shield</span>
+      </h1>
+      <p class="hero-subtitle" id="hero-subtitle">Real-Time AI Face &amp; Voice Fraud Detection System</p>
+      <p class="hero-tagline" id="hero-tagline">"Because Seeing Should Still Mean Believing."</p>
+      <div class="hero-actions">
+        <a href="#detect" class="btn-primary" id="hero-cta-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          Start Detecting
+        </a>
+        <a href="#features" class="btn-ghost" id="hero-cta-ghost">
+          Explore Features
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+      </div>
+      <div class="hero-stats" id="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">99.7<span class="stat-unit">%</span></span>
+          <span class="stat-label">Accuracy</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">3<span class="stat-unit">s</span></span>
+          <span class="stat-label">Avg Analysis</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">4<span class="stat-unit">M+</span></span>
+          <span class="stat-label">Scans Done</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="scanner-orb">
+        <div class="orb-ring r1"></div>
+        <div class="orb-ring r2"></div>
+        <div class="orb-ring r3"></div>
+        <div class="orb-core">
+          <div class="scan-line"></div>
+          <svg class="orb-icon" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="url(#og)" stroke-width="1.2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+            <defs>
+              <linearGradient id="og" x1="1" y1="12" x2="23" y2="12">
+                <stop stop-color="#6366f1"/>
+                <stop offset="1" stop-color="#06b6d4"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="orb-label">AI Core</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FEATURES ======= -->
+  <section class="features-section" id="features">
+    <div class="section-header">
+      <p class="section-tag">Capabilities</p>
+      <h2 class="section-title">Three Layers of Protection</h2>
+      <p class="section-desc">Our multi-modal AI engine analyzes video, audio, and imagery simultaneously for comprehensive fraud detection.</p>
+    </div>
+    <div class="features-grid" id="features-grid">
+      <div class="feature-card" id="feat-video">
+        <div class="feat-icon-wrap feat-blue">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m10 15 5-3-5-3v6z"/></svg>
+        </div>
+        <h3>Video Deepfake Detection</h3>
+        <p>Frame-by-frame analysis using CNN models trained on 2M+ synthetic media samples. Detects face swaps, lip-sync mismatches, and GAN artifacts.</p>
+        <ul class="feat-list">
+          <li>Face swap detection</li>
+          <li>Temporal inconsistency analysis</li>
+          <li>Compression artifact detection</li>
+        </ul>
+        <div class="feat-badge">MP4 · AVI · MOV · WebM</div>
+      </div>
+      <div class="feature-card featured" id="feat-audio">
+        <div class="feat-ribbon">Most Used</div>
+        <div class="feat-icon-wrap feat-purple">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </div>
+        <h3>Voice Clone Detection</h3>
+        <p>Advanced spectrogram analysis and neural voiceprint comparison to identify AI-synthesized speech, voice cloning, and audio deepfakes.</p>
+        <ul class="feat-list">
+          <li>Voiceprint authentication</li>
+          <li>Spectral anomaly detection</li>
+          <li>Prosody pattern analysis</li>
+        </ul>
+        <div class="feat-badge">MP3 · WAV · AAC · FLAC</div>
+      </div>
+      <div class="feature-card" id="feat-camera">
+        <div class="feat-icon-wrap feat-cyan">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 7 16 12l7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <h3>Live Camera Analysis</h3>
+        <p>Real-time webcam feed analysis with 30fps processing. Detect deepfake face filters, avatar overlays, and identity spoofing during live calls.</p>
+        <ul class="feat-list">
+          <li>Real-time face analysis</li>
+          <li>Liveness detection</li>
+          <li>Filter & overlay detection</li>
+        </ul>
+        <div class="feat-badge">Live · WebRTC · 30fps</div>
+      </div>
+    </div>
+
+    <!-- Result badges showcase -->
+    <div class="result-showcase" id="result-showcase">
+      <p class="showcase-label">Detection Results</p>
+      <div class="showcase-badges">
+        <span class="rbadge authentic">✓ Authentic</span>
+        <span class="rbadge suspicious">⚠ Suspicious</span>
+        <span class="rbadge fake">✗ DeepFake</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= UPLOAD / DETECTION ======= -->
+  <section class="detect-section" id="detect">
+    <div class="section-header">
+      <p class="section-tag">Detection Engine</p>
+      <h2 class="section-title">Upload &amp; Analyze</h2>
+      <p class="section-desc">Drag &amp; drop your file below or click to browse. Supports video, audio, and image files.</p>
+    </div>
+
+    <!-- Mode tabs -->
+    <div class="detect-tabs" id="detect-tabs" role="tablist">
+      <button class="tab-btn active" id="tab-upload" role="tab" aria-selected="true" data-tab="upload">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        File Upload
+      </button>
+      <button class="tab-btn" id="tab-camera" role="tab" aria-selected="false" data-tab="camera">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7 16 12l7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        Live Camera
+      </button>
+    </div>
+
+    <div class="detect-content">
+      <!-- Upload Panel -->
+      <div class="tab-panel active" id="panel-upload">
+        <div class="upload-zone" id="upload-zone" tabindex="0" role="button" aria-label="Upload file for analysis">
+          <input type="file" id="file-input" accept="video/*,audio/*,image/*" hidden />
+          <div class="upload-idle" id="upload-idle">
+            <div class="upload-icon-wrap">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="url(#ug)" stroke-width="1.3">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+                <defs>
+                  <linearGradient id="ug" x1="3" y1="3" x2="21" y2="21">
+                    <stop stop-color="#6366f1"/>
+                    <stop offset="1" stop-color="#06b6d4"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <p class="upload-title">Drag & Drop your file here</p>
+            <p class="upload-sub">or <span class="upload-browse">click to browse</span></p>
+            <p class="upload-formats">Supports: MP4, AVI, MOV, MP3, WAV, JPG, PNG, WebM</p>
+          </div>
+          <div class="upload-preview" id="upload-preview" hidden>
+            <div class="preview-icon" id="preview-icon"></div>
+            <div class="preview-info">
+              <p class="preview-name" id="preview-name"></p>
+              <p class="preview-size" id="preview-size"></p>
+              <p class="preview-type" id="preview-type"></p>
+            </div>
+            <button class="preview-remove" id="preview-remove" aria-label="Remove file">✕</button>
+          </div>
+        </div>
+
+        <!-- Type selector -->
+        <div class="type-selector" id="type-selector">
+          <p class="type-label">Analysis Type:</p>
+          <div class="type-btns">
+            <button class="type-btn active" id="type-auto" data-type="auto">Auto Detect</button>
+            <button class="type-btn" id="type-video" data-type="video">Video</button>
+            <button class="type-btn" id="type-audio" data-type="audio">Audio</button>
+            <button class="type-btn" id="type-image" data-type="image">Image</button>
+          </div>
+        </div>
+
+        <button class="btn-analyze" id="analyze-btn" disabled>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          Analyze File
+        </button>
+      </div>
+
+      <!-- Camera Panel -->
+      <div class="tab-panel" id="panel-camera">
+        <div class="camera-zone" id="camera-zone">
+          <div class="camera-frame">
+            <div class="camera-corners">
+              <span class="corner tl"></span>
+              <span class="corner tr"></span>
+              <span class="corner bl"></span>
+              <span class="corner br"></span>
+            </div>
+            <video id="camera-feed" autoplay muted playsinline></video>
+            <div class="camera-overlay" id="camera-overlay">
+              <div class="cam-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"><path d="M23 7 16 12l7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+              </div>
+              <p>Camera not started</p>
+            </div>
+            <div class="scan-overlay" id="scan-overlay" hidden>
+              <div class="face-detect-box" id="face-box"></div>
+              <div class="scan-sweep"></div>
+            </div>
+          </div>
+          <div class="camera-controls">
+            <button class="btn-cam" id="start-cam-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+              Start Camera
+            </button>
+            <button class="btn-cam" id="scan-cam-btn" disabled>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              Scan Live Feed
+            </button>
+            <button class="btn-cam danger" id="stop-cam-btn" disabled>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="6" width="12" height="12"/></svg>
+              Stop
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= LOADING OVERLAY ======= -->
+  <div class="loading-overlay" id="loading-overlay" hidden aria-live="polite">
+    <div class="loading-modal">
+      <div class="loading-scanner">
+        <div class="ls-ring"></div>
+        <div class="ls-ring r2"></div>
+        <div class="ls-ring r3"></div>
+        <div class="ls-core">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="url(#lg)" stroke-width="1.5">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+            <defs>
+              <linearGradient id="lg" x1="1" y1="12" x2="23" y2="12">
+                <stop stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+      <h3 class="loading-title">Analyzing Media</h3>
+      <p class="loading-step" id="loading-step">Initializing AI engine...</p>
+      <div class="loading-bar-wrap">
+        <div class="loading-bar" id="loading-bar"></div>
+      </div>
+      <p class="loading-pct" id="loading-pct">0%</p>
+    </div>
+  </div>
+
+  <!-- ======= RESULTS ======= -->
+  <section class="results-section" id="results-section" hidden>
+    <div class="section-header">
+      <p class="section-tag">Analysis Complete</p>
+      <h2 class="section-title">Detection Results</h2>
+    </div>
+
+    <div class="results-container">
+      <!-- Verdict card -->
+      <div class="result-verdict" id="result-verdict">
+        <div class="verdict-ring" id="verdict-ring">
+          <svg class="verdict-svg" viewBox="0 0 120 120">
+            <circle class="vring-bg" cx="60" cy="60" r="50"/>
+            <circle class="vring-fill" id="vring-fill" cx="60" cy="60" r="50" stroke-dasharray="314" stroke-dashoffset="314"/>
+          </svg>
+          <div class="verdict-center">
+            <span class="verdict-pct" id="verdict-pct">0%</span>
+            <span class="verdict-label-small">confidence</span>
+          </div>
+        </div>
+        <div class="verdict-info">
+          <div class="verdict-status-badge" id="verdict-badge">Analyzing...</div>
+          <h3 class="verdict-file" id="verdict-file">—</h3>
+          <div class="verdict-meta" id="verdict-meta"></div>
+        </div>
+      </div>
+
+      <!-- Explanation cards -->
+      <div class="explanation-grid" id="explanation-grid">
+        <div class="expl-card" id="expl-1">
+          <div class="expl-icon" id="expl-icon-1"></div>
+          <div>
+            <p class="expl-title" id="expl-title-1">Primary Finding</p>
+            <p class="expl-text" id="expl-text-1">—</p>
+          </div>
+        </div>
+        <div class="expl-card" id="expl-2">
+          <div class="expl-icon" id="expl-icon-2"></div>
+          <div>
+            <p class="expl-title" id="expl-title-2">Technical Analysis</p>
+            <p class="expl-text" id="expl-text-2">—</p>
+          </div>
+        </div>
+        <div class="expl-card" id="expl-3">
+          <div class="expl-icon" id="expl-icon-3"></div>
+          <div>
+            <p class="expl-title" id="expl-title-3">Recommendation</p>
+            <p class="expl-text" id="expl-text-3">—</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Signal bars -->
+      <div class="signal-bars" id="signal-bars">
+        <h4 class="signal-title">Detection Signals</h4>
+        <div class="bar-list" id="bar-list"></div>
+      </div>
+
+      <!-- Actions -->
+      <div class="result-actions">
+        <button class="btn-primary" id="btn-scan-another">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Scan Another File
+        </button>
+        <button class="btn-ghost" id="btn-export">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export Report
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= DASHBOARD ======= -->
+  <section class="dashboard-section" id="dashboard">
+    <div class="section-header">
+      <p class="section-tag">Dashboard</p>
+      <h2 class="section-title">Scan Overview</h2>
+      <p class="section-desc">Your current session statistics and scan history.</p>
+    </div>
+    <div class="dashboard-grid">
+      <!-- Stats -->
+      <div class="dash-card" id="dash-uploads">
+        <div class="dash-card-icon blue">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        </div>
+        <div class="dash-card-body">
+          <p class="dash-num" id="stat-uploads">0</p>
+          <p class="dash-label">Files Uploaded</p>
+        </div>
+        <div class="dash-trend up">↑ Session</div>
+      </div>
+      <div class="dash-card" id="dash-analyzed">
+        <div class="dash-card-icon purple">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <div class="dash-card-body">
+          <p class="dash-num" id="stat-analyzed">0</p>
+          <p class="dash-label">Analyses Run</p>
+        </div>
+        <div class="dash-trend up">↑ Session</div>
+      </div>
+      <div class="dash-card" id="dash-fakes">
+        <div class="dash-card-icon red">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="dash-card-body">
+          <p class="dash-num" id="stat-fakes">0</p>
+          <p class="dash-label">Deepfakes Found</p>
+        </div>
+        <div class="dash-trend" id="trend-fakes">—</div>
+      </div>
+      <div class="dash-card" id="dash-authentic">
+        <div class="dash-card-icon green">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div class="dash-card-body">
+          <p class="dash-num" id="stat-authentic">0</p>
+          <p class="dash-label">Authentic Files</p>
+        </div>
+        <div class="dash-trend up">—</div>
+      </div>
+    </div>
+
+    <!-- History table -->
+    <div class="history-wrap">
+      <div class="history-header">
+        <h3>Recent Scans</h3>
+        <button class="btn-ghost sm" id="clear-history-btn">Clear History</button>
+      </div>
+      <div class="history-table-wrap">
+        <table class="history-table" id="history-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>File</th>
+              <th>Type</th>
+              <th>Result</th>
+              <th>Confidence</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="history-body">
+            <tr class="history-empty" id="history-empty">
+              <td colspan="6">No scans yet. Upload a file to get started.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">DeepFake<span class="brand-accent">Shield</span></span>
+        <p>Protecting digital truth in the age of synthetic media.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#features">Features</a>
+        <a href="#detect">Detect</a>
+        <a href="#dashboard">Dashboard</a>
+      </div>
+      <p class="footer-copy">© 2026 DeepFake Shield. AI-Powered Forensic Protection.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
