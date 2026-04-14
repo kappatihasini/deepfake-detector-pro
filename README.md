@@ -23,12 +23,25 @@ An AI-powered web application that detects deepfake content in images, videos, a
 - **Version Control:** GitHub
 
 ---
-
 ## 📸 Screenshots
 
-_Add screenshots of your project here_
+### 🏠 Home Page
+![Home](home.png)
 
----
+### 📤 Upload Section
+![Upload](upload.png)
+
+### ⚙️ Detection Tool
+![Tool](tool.png)
+
+### 📊 Result Page
+![Result](result.png)
+
+### 📄 Detailed Analysis
+![Detailed](detailed.png)
+
+### 🔍 Overview
+![Overview](over.png)
 ## ▶️ How to Run Locally
 
 1. Clone the repository:
